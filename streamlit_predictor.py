@@ -214,9 +214,9 @@ def main():
             st.pyplot(fig)
             # st.write(test_data)
             # graph(np.concatenate(data[[target]], forecasts))
-            # evaluator = Evaluator(quantiles=[0.1, 0.5, 0.9])
-            # agg_metrics, item_metrics = evaluator(test_data.dataset, forecasts)
-            # st.write((json.dumps(agg_metrics, indent=4)))
+            evaluator = Evaluator(quantiles=[0.1, 0.5, 0.9])
+            agg_metrics, item_metrics = evaluator(test_data.dataset, forecasts)
+            st.write((json.dumps(agg_metrics, indent=4)))
     else:
         graph(pd.concat([train, test]), y=target, color="Type")
 
